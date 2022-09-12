@@ -1,7 +1,7 @@
 # talent-hire-portal
  Talent Hiring Portal Exam Test By Analyzen BD
  
- #Description for the Project
+ # Description for the Project
  
 # Project Download from Github and run it to local server as usal process. If problem to run migration, a demo local DB has been store in 'demoLocalDB' folder in root path.
 
