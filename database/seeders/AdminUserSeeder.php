@@ -19,6 +19,7 @@ class AdminUserSeeder extends Seeder
         User::create([
             'name' => 'Admin',
             'email' => 'admin@analyzen.com',
+            'role_as' => 1,// 1 for admin
             'password' => Hash::make('pass#123'),
         ]);
     }

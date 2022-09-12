@@ -19,7 +19,7 @@ return new class extends Migration
             $table->char('email',50)->unique();
             $table->char('phone',15)->unique()->nullable();
             $table->tinyInteger('role_as')->default('0')->comment('0 for user, 1 for admin');
-            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
+            $table->enum('status', ['pending', 'approved', 'rejected','qualified'])->default('pending');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

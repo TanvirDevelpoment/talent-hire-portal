@@ -50,8 +50,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'name' => ['required', 'string', 'max:30'],
+            'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
+            'phone' => ['required', 'string', 'max:15', 'unique:users'],
+            'cv_link' => 'required|mimes:txt,pdf|max:2048',
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -64,9 +66,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $file_name = $data['cv_link']->getClientOriginalName();
+ 
+        $file_path =  $data['cv_link']->store('public/user_cv_link');
+        $only_name_explode = explode('/',$file_path);
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
+            'cv_link' => $only_name_explode[2],
             'password' => Hash::make($data['password']),
         ]);
     }
