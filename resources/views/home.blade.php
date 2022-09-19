@@ -75,13 +75,15 @@
         $('#quizDetails').hide();
         // $('#test_result_show').hide();
     });
+    var ob_arry = [];
+    var data_arry = [];
     $('#countDownTimer').click(function(){
         $('#intialInfo').remove();
         $('#quizDetails').show();
         $('#show_message').hide();
         // Quiz div function
         
-        var countDownDate = new Date(new Date().getTime() + 03*60000);// Exam for 3 minutes
+        var countDownDate = new Date(new Date().getTime() + 02*60000);// Exam for 2 minutes
         // Update the count down every 1 second
         var x = setInterval(function() {
             // Get today's date and time
@@ -116,7 +118,7 @@
         quizDetails(0);// First Quiz
         var t = 1;
         $('#increase').on('click', function() {
-            
+            ob_arry = [];
             quizDetails(t);// Quiz increament
             t++;
         });
@@ -151,8 +153,7 @@
         }            
             
     }
-    var ob_arry = [];
-    var data_arry = [];
+    
         
     function storeData(type,op_no,op_val){ // store data into local storage
         
@@ -161,33 +162,10 @@
         
         if(type == "checkbox"){// If quiz with checkbox
             data_arry = [];
-            if(chekb.checked == true){ // if checked value push into array
-               
-                if(localStorage.length > 0){
-                    var b_key   = localStorage.key(localStorage.length-1);
-                    var p_key   = localStorage.key(localStorage.length);
-                    var value = localStorage.getItem(b_key);
-                    if(p_key == null){
-                        p_key = localStorage.length;
-                    }
-                    if (b_key == op_no || b_key == p_key) {
-                        ob_arry.push(op_val);
-                        data_arry.push(ob_arry.join(','));
-                        localStorage.setItem(op_no, data_arry);
-                        // ob_arry = [];
-                    }else{
-                        ob_arry = [];                        
-                        ob_arry.push(op_val);
-                        data_arry.push(ob_arry.join(','));
-                        localStorage.setItem(op_no, data_arry);
-                    
-                    }
-                }else{
-                    ob_arry.push(op_val);
-                    data_arry.push(ob_arry.join(','));
-                    localStorage.setItem(op_no, data_arry);
-                }
-                
+            if(chekb.checked == true){ // if checked value push into array               
+                ob_arry.push(op_val);
+                data_arry.push(ob_arry.join(','));
+                localStorage.setItem(op_no, data_arry);
                 
             }else{ //if unchecked value remove from array
                 if ((index = ob_arry.indexOf(op_val)) !== - 1) {
