@@ -19,7 +19,7 @@
  => After login, examinee dashboard will be shown, Examinee have to wait for a while for reveiwing the CV by Admin. After Approving by Admin In dashboard the Quiz Start button will be shown.
  => Two types of Quiz will come randomly one is radio single answer selection and another is checkbox Multiple answer selection.
  => Examinee have finish the exam before countdown timer.
- => After Finishing the Exam The will be shown in Examinee Dashboard.
+ => After Finishing the Exam The result will be shown in Examinee Dashboard.
   
   That's all
   
